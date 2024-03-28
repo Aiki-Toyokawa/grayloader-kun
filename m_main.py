@@ -1,6 +1,6 @@
 # main.py
 import tkinter as tk
-from modules import download_video_thread, display_thumbnail
+from m_modules import download_video_thread, display_thumbnail
 import threading
 
 root = tk.Tk()
