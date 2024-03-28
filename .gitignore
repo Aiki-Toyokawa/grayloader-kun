@@ -1,5 +1,7 @@
-__pycashe__/
+# ファイル
+thumbnail_test.py
+
+# ディレクトリ・フォルダ
+__pycache__/
 downloads/
 thumbs/
-
-thumbnail_test.py
