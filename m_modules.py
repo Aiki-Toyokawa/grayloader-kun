@@ -14,7 +14,7 @@ def download_video_thread(url_entry, label, display_thumbnail, root):
         stream.download(output_path="downloads")
         root.after(0, label.config, {"text": "ダウンロード完了"})
         
-        #-------------------------------
+        #-------------------------------#
         # サムネイルのダウンロード
         thumbnail_url = yt.thumbnail_url
         response = requests.get(thumbnail_url)
@@ -23,18 +23,21 @@ def download_video_thread(url_entry, label, display_thumbnail, root):
         thumbnail_filename = 'thumbs/' + yt.video_id + '.jpg'
         with open(thumbnail_filename, 'wb') as f:
             f.write(response.content)
-        #------------------------------
-            
-        root.after(0, display_thumbnail, yt.thumbnail_url, root)
+        #-------------------------------#
+        
+        # サムネイル表示関数呼び出し
+        root.after(0, display_resize_thumbnail, yt.thumbnail_url, root)
+
+    # エラー処理
     except Exception as e:
-        root.after(0, label.config, {"text": f"エラー: {e}"})
+        root.after(0, label.config, {"text": f"エラー : URLの動画が見つかりませんでした。URL間違ってるYO"})
         root.after(0, lambda: messagebox.showerror("エラー", f"動画のダウンロードに失敗しました: {e}"))
 #----------------------------------------------------------------------#
 
 
 #----------------------------------------------------------------------#
 # サムネリサイズ＆表示関数
-def display_thumbnail(url, root):
+def display_resize_thumbnail(url, root):
     response = requests.get(url)
     img_data = BytesIO(response.content)
     img = Image.open(img_data)
