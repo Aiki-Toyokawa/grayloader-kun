@@ -1,3 +1,4 @@
+# m_styles.py
 from tkinter import ttk
 
 # スタイルの定義

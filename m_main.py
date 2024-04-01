@@ -1,4 +1,4 @@
-# main.py
+# m_main.py
 import tkinter as tk
 from m_modules import download_video_thread, display_resize_thumbnail
 import threading
