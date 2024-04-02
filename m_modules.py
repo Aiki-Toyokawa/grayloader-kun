@@ -1,9 +1,9 @@
 # m_modules.py
 import requests
-from tkinter import messagebox
-from io      import BytesIO
-from PIL     import Image, ImageTk
-from pytube  import YouTube
+from   tkinter  import messagebox
+from   io       import BytesIO
+from   PIL      import Image, ImageTk
+from   pytube   import YouTube
 
 #----------------------------------------------------------------------#
 # 動画ダウンロード関数

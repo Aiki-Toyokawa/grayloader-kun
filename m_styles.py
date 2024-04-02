@@ -1,11 +1,12 @@
 # m_styles.py
 from tkinter import ttk
 
-# スタイルの定義
-def main_style():
+def set_custom_style():
     style = ttk.Style()
-    style.configure("TButton", foreground="black", background="white", font=("Helvetica", 12))
-    style.configure("TLabel", foreground="blue", background="white", font=("Helvetica", 14))
-    style.configure("TEntry", foreground="black", background="white", font=("Helvetica", 12))
+    style.theme_use('clam')
 
-
+    # カスタムスタイルを作成 (エントリーボックス用)
+    style.configure('Custom.TEntry', foreground='black', background='#f0f0f0', borderwidth=1)
+    style.map('Custom.TEntry',
+              fieldbackground=[('active', '#e0e0e0')],
+              foreground=[('focus', 'black'), ('!focus', 'gray')])
