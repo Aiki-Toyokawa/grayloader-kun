@@ -9,13 +9,7 @@ root = tk.Tk()
 root.title("YouTube Downloader")
 root.geometry("700x500")
 
-#-----------------------------------#
-# スタイル設定
-m_styles.set_custom_style()
-
-#-----------------------------------#
-
-
+m_styles.set_custom_style() # スタイル設定
 
 #-----------------------------------#
 # UI

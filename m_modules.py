@@ -12,7 +12,7 @@ def download_video_thread(url_entry, label, display_thumbnail, root):
     try:
         yt = YouTube(url)
         stream = yt.streams.get_highest_resolution()
-        stream.download(output_path="downloads")
+        stream.download(output_path="d_downloads")
         root.after(0, label.config, {"text": "ダウンロード完了"})
         
         #-------------------------------#
@@ -21,7 +21,7 @@ def download_video_thread(url_entry, label, display_thumbnail, root):
         response = requests.get(thumbnail_url)
 
         # サムネイル画像の保存名（動画IDを使用）
-        thumbnail_filename = 'thumbs/' + yt.video_id + '.jpg'
+        thumbnail_filename = 'd_thumbnails/' + yt.video_id + '.jpg'
         with open(thumbnail_filename, 'wb') as f:
             f.write(response.content)
         #-------------------------------#
@@ -31,8 +31,9 @@ def download_video_thread(url_entry, label, display_thumbnail, root):
 
     # エラー処理
     except Exception as e:
-        root.after(0, label.config, {"text": f"エラー : URLの動画が見つかりませんでした。URL間違ってるYO"})
-        root.after(0, lambda: messagebox.showerror("エラー", f"動画のダウンロードに失敗しました: {e}"))
+        error_message = f"動画のダウンロードに失敗しました: {e}"
+        root.after(0, lambda: label.config(text="エラー"))
+        root.after(0, lambda: messagebox.showerror("エラー", error_message))
 #----------------------------------------------------------------------#
 
 
