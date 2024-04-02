@@ -7,7 +7,7 @@ from   pytube   import YouTube
 
 #----------------------------------------------------------------------#
 # 動画ダウンロード関数
-def download_video_thread(url_entry, label, root):
+def download_video_thread(url_entry, label, display_thumbnail, root):
     url = url_entry.get()
     try:
         yt = YouTube(url)

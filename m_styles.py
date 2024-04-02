@@ -10,3 +10,6 @@ def set_custom_style():
     style.map('Custom.TEntry',
               fieldbackground=[('active', '#e0e0e0')],
               foreground=[('focus', 'black'), ('!focus', 'gray')])
+    
+    # ボタン用
+    style.configure('Custom.TButton', padding=6, relief='flat',background='#ccc')
