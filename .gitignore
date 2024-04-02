@@ -5,4 +5,4 @@ DO_THIS.txt
 # ディレクトリ・フォルダ
 __pycache__/
 d_downloads/
-_thumbnails/
+d_thumbnails/
